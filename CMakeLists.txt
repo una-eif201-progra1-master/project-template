@@ -1,5 +1,12 @@
-cmake_minimum_required(VERSION 3.26)
-project(basic-00-example)
+cmake_minimum_required(VERSION 3.26) # Minimum version of CMake
+project(MyProject VERSION 1.0)        # Project name and version
 
+# Specify the C++ standard
 set(CMAKE_CXX_STANDARD 17)
-# add_executable(sample FileName.cpp)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Add include directory
+include_directories(include)
+
+# Add executable
+# add_executable(MyProject src/main.cpp src/MyClass.cpp)

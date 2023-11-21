@@ -1,2 +1,2 @@
 language = "cpp"
-run = "clang++-7 -pthread -std=c++17 -o appName FileName.cpp; ./appName"
+run = "clang++-7 -pthread -std=c++17 -o appName include/main.cpp; ./appName"
