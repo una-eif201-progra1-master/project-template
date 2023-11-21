@@ -1,2 +1,2 @@
 # project-template
-Basic template for C++ projects
+Basic template for C++ projects.
