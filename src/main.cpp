@@ -44,7 +44,7 @@
 
 int main() {
     system("clear");
-    std::cout << "Universidad Nacional de Costa Rica - mikeguzman.dev" << std::endl;
+    std::cout << "Universidad Nacional de Costa Rica - www.mikeguzman.dev" << std::endl;
 
 
     std::cout << std::endl;
