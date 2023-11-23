@@ -1,37 +1,60 @@
-  
-# Prerequisites
-*.d
+# Creating the .gitignore file content based on the provided list
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+gitignore_content = """
+### CLion and C++ ###
+# CLion Specific
+.idea/
+cmake-build-debug/
+cmake-build-release/
+*.[oO]
+*.cmake
+Makefile
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
+# C++ Build Artifacts
 *.exe
 *.out
-*.app
+*.dll
+*.so
+*.dylib
+*.obj
+*.d
 
-.idea/
-/cmake-build-debug
-/sample
+### Visual Studio Code ###
+.vscode/
+
+### CMake ###
+CMakeFiles/
+CMakeCache.txt
+*.cmake
+Makefile
+
+### General Recommendations ###
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# User-Specific Files
+*.user
+*.suo
+
+# Editor Backup Files
+*~
+*.bak
+
+# Other Common Ignores
+logs/
+temp/
+bin/
+obj/
+"""
+
+# Writing the content to a .gitignore file
+path = "/mnt/data/gitignore_file.txt"
+with open(path, "w") as file:
+    file.write(gitignore_content)
+
+path
+
+build/
+
+compile_commands.json

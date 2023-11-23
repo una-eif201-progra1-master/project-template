@@ -1,58 +1,75 @@
-# Template for C++ Projects with CMake
+# Inheritance
 
-## Project Structure
+## Documentation
 
-Structuring a C++ project with CMake involves organizing your source files, headers, and build configurations in a way that is manageable and scalable. Here's an example of how you could structure a simple C++ project:
+- [Technical pages](https://una-eif201-progra1-master.github.io/dev.funda.oop-inheritance/)
+- [Course website](https://mikeguzman.dev/software-development/programming-fundations/object-oriented-programming/)
 
-### Project Directory Structure
+## Resources
 
-```
+- [CMake](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
+- [CLion from Jetbrains](https://www.jetbrains.com/help/clion/quick-cmake-tutorial.html)
+- [Visual Studio Code](https://code.visualstudio.com/docs/languages/cpp)
+- [Repl.it](https://replit.com/@MaikolGuzman?path=folder/EIF201%20-%20Progra%201)
+- [Github Course Space](https://github.com/una-eif201-progra1-master)
+
+## Project Directory Structure
+
+```bash
 MyProject/
 │
-├── CMakeLists.txt            # Top-level CMake configuration file
-│
-├── src/                      # Source files directory
-│   ├── main.cpp              # Main program file
+├── .github/workflows         # [optional] GitHub Actions workflow files
+├── docs/                     # [optional] Documentation files│
+├── src/                      # [required] Source files directory
+│   ├── main.cpp              # [required] Main program file
 │   └── MyClass.cpp           # Implementation of MyClass
 │
-├── include/                  # Header files directory
+├── include/                  # [required] Header files directory
 │   └── MyClass.h             # Header for MyClass
 │
-└── build/                    # Directory for out-of-source builds
+├── .gitignore                # [required] Git ignore file
+├── .replit                   # [optional] Repl.it configuration file
+├── replit.nix                # [optional] Repl.it configuration file
+├── CMakeLists.txt            # [required] CMake configuration file
+└── README.md                 # [required] README file
 ```
 
-### CMakeLists.txt
+1. **.github/workflows**: This is a directory typically used in GitHub repositories for storing workflow files. GitHub
+   workflows are part of GitHub Actions, which automate certain processes in a software development workflow, like
+   running tests, deploying code, or other CI/CD (Continuous Integration/Continuous Deployment) tasks.
 
-This is your top-level CMake configuration file. It defines the project and its build requirements.
+2. **docs/html**: This looks like a directory within the `docs` folder, likely used for storing HTML files related to
+   documentation. The commit message "Final changes" tagged as "now" indicates recent updates or finalization of the
+   documentation in HTML format.
 
-```cmake
-cmake_minimum_required(VERSION 3.10)  # Minimum version of CMake
+3. **include**: This is commonly a directory containing header files in C or C++ projects, but it can also include other
+   types of files in different contexts.
+    1. `MyClass.h`: This contains the declarations of your class or functions.
 
-project(MyProject VERSION 1.0)        # Project name and version
+4. **src**: Short for "source", this directory usually contains the source code of the project.
+    1. `main.cpp`: This is the entry point of your program.
+    2. `MyClass.cpp`: This contains the implementation of a class or functions.
 
-# Specify the C++ standard
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+5. **.gitignore**: This is a special file used by Git, the version control system. It tells Git which files or
+   directories to ignore in a project, usually things like build outputs, temporary files, or files containing sensitive
+   information.
 
-# Add include directory
-include_directories(include)
+6. **.replit**: This file is specific to Repl.it, an online IDE (Integrated Development Environment). It's used to
+   configure the Repl.it environment, such as specifying the language, build, and run commands.
 
-# Add executable
-add_executable(MyProject src/main.cpp src/MyClass.cpp)
-```
+7. **CMakeLists.txt**: This is a file used by CMake, a build system that manages the build process in an operating
+   system and compiler-independent manner.
 
-### Source Files (src/)
+8. **README.md**: This file, typically written in Markdown, provides an overview of the project, including instructions
+   on how to install, configure, and use it.
 
-- `main.cpp`: This is the entry point of your program.
-- `MyClass.cpp`: This contains the implementation of a class or functions.
+9. **replit.nix**: This is likely a configuration file for Nix, a powerful package manager, used in the context of
+   Repl.it. It specifies dependencies and environment settings for the project.
 
-### Header Files (include/)
+## Building the Project
 
-- `MyClass.h`: This contains the declarations of your class or functions.
-
-### Building the Project
-
-1. **Creating a Build Directory**: It's a good practice to do an out-of-source build. This keeps your build files separate from your source files.
+1. **Creating a Build Directory**: It's a good practice to do an out-of-source build. This keeps your build files
+   separate from your source files.
 
     ```sh
     mkdir build
@@ -65,7 +82,8 @@ add_executable(MyProject src/main.cpp src/MyClass.cpp)
     cmake ..
     ```
 
-3. **Compiling the Project**: After CMake has done its job, you can use the generated build system to compile the project.
+3. **Compiling the Project**: After CMake has done its job, you can use the generated build system to compile the
+   project.
 
     ```sh
     make
@@ -76,37 +94,41 @@ add_executable(MyProject src/main.cpp src/MyClass.cpp)
 ### Notes
 
 - **CMake Version**: Make sure to specify the minimum required version of CMake that your project needs.
-- **Project Structure**: This is a simple example. Larger projects may have more complex structures, with subdirectories for different modules, tests, third-party libraries, etc.
+- **Project Structure**: This is a simple example. Larger projects may have more complex structures, with subdirectories
+  for different modules, tests, third-party libraries, etc.
 - **C++ Standard**: Set the C++ standard according to your project requirements.
 - **Include Directories**: Use `include_directories` to include your header files.
 - **Executable**: Use `add_executable` to specify the executable name and the source files required to build it.
 
-This structure is scalable and can be expanded as your project grows, by adding more source files, headers, and potentially CMake configuration files in subdirectories.
+This structure is scalable and can be expanded as your project grows, by adding more source files, headers, and
+potentially CMake configuration files in subdirectories.
 
-## Replit
+## The Example
 
-A `.replit` file is used to configure projects on Replit, an online IDE and hosting service. To set up a `.replit` file for a C++ project that uses CMake, you need to specify the run command that builds and executes your project.
+```c++
+// Example of Inheritance
+class Vehicle {
+public:
+string brand = "Ford";
 
-Given the project structure I described earlier, your `.replit` file would look something like this:
+void honk() {
+cout << "Tuut, tuut!" << endl;
+}
+};
 
-```yaml
-language: "cpp"
-run: "cmake -B build && cmake --build build && ./build/MyProject"
+class Car:
+public Vehicle {
+public:
+string model = "Mustang";
+};
+
+int main() {
+Car car1;
+car1.honk();  // Output: Tuut, tuut!
+cout << car1.brand + " " + car1.model;  // Output: Ford Mustang
+return 0;
+}
+
 ```
 
-Here's what each part of this command does:
-
-1. `cmake -B build`: Generates build files in the `build` directory. The `-B` flag specifies the directory for the build files.
-
-2. `cmake --build build`: Compiles the project using the generated build files in the `build` directory.
-
-3. `./build/MyProject`: Runs the compiled executable. Replace `MyProject` with the name of your executable as specified in your `CMakeLists.txt` file.
-
-This `.replit` file tells Replit how to build and run your C++ project using CMake. When you press the "Run" button in Replit, it will execute the command specified in the `run` field.
-
-### Additional Notes
-
-- The `.replit` file must be placed in the root directory of your project on Replit.
-- Ensure that your CMake version in Replit is compatible with your `CMakeLists.txt`.
-- If your project structure or build process is different, you might need to adjust the `run` command accordingly.
-- Replit might have its specific nuances or limitations regarding build processes, so it's always good to check the latest Replit documentation or community forums for any specific configuration needs.
+`Car` is a derived class that inherits from the base class `Vehicle`.
